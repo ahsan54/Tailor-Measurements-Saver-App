@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Customer Info</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<style>
+        @charset "utf-8";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+html {
+  font-size: 150%;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  text-size-adjust: none;
+}
+a {
+  text-decoration: none;
+}
+   
+   
+   
+   body {
+          font-family: Arial, sans-serif;
+          background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0,0,0,0.50)),url("{{ url_for('static', filename='Update.jpg') }}");    
+          background-size: cover;
+          background-attachment: fixed;
+          color: white;
+          text-align: center;
+          padding: 50px;
+      }
+      h1{
+          color: azure;
+      }
+</style>
+<body>
+    <h1>Update Customer Info</h1>
+    <form method="post">
+        <label for="customer_name">Customer Name:</label>
+        <input type="text" id="customer_name" name="customer_name" required><br>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br>
+        <label for="arm_size">Arm Size:</label>
+        <input type="text" id="arm_size" name="arm_size"><br>
+        <label for="leg_size">Leg Size:</label>
+        <input type="text" id="leg_size" name="leg_size"><br>
+        <label for="waist_size">Waist Size:</label>
+        <input type="text" id="waist_size" name="waist_size"><br>
+        <label for="neck_size">Neck Size:</label>
+        <input type="text" id="neck_size" name="neck_size"><br>
+        <button type="submit">Update</button>
+    </form>
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+    <a href="{{ url_for('index') }}">Back to Home</a>
+</body>
+</html>

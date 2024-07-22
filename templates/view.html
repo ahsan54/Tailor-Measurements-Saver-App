@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View All Customers</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+            @charset "utf-8";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  text-size-adjust: none;
+}
+a {
+  text-decoration: none;
+}
+    
+    
+    body {
+         font-family: Arial, sans-serif;
+         background-image: url("{{ url_for('static', filename='View.jpeg') }}");    
+         background-size: cover;
+         background-attachment: fixed;
+         color: rgb(0, 0, 0);
+         text-align: center;
+         padding: 50px;
+     }
+     h1{
+         color: rgb(0, 0, 0);
+     }
+     .highlight {
+            background-color: yellow;
+        }
+
+
+
+
+
+
+        table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid white;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  color: white; /* Set text color inside table to white */
+}
+
+th {
+  background-color: white; /* Remove the whitish background */
+  color: rgb(0, 0, 0); /* Set header text color to black */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </style>
+</head>
+<form action="{{ url_for('view') }}" method="POST">
+  <label for="search_term">Search Customer:</label>
+  <input type="text" id="search_term" name="search_term" value="{{ search_term }}">
+  <button type="submit">Search</button>
+</form>
+
+<table>
+  <thead>
+      <tr>
+          <th>Customer</th>
+          <th>Name</th>
+          <th>Arm Size</th>
+          <th>Leg Size</th>
+          <th>Waist Size</th>
+          <th>Neck Size</th>
+      </tr>
+  </thead>
+  <tbody>
+      {% for customer in customers %}
+      <tr {% if customer.is_searched %} class="highlight" {% endif %}>
+          <td>{{ loop.index }}</td>
+          <td>{{ customer.name }}</td>
+          <td>{{ customer.arm_size }}</td>
+          <td>{{ customer.leg_size }}</td>
+          <td>{{ customer.waist_size }}</td>
+          <td>{{ customer.neck_size }}</td>
+      </tr>
+      {% endfor %}
+  </tbody>
+</table>
+
+<a href="{{ url_for('index') }}">Back to Home</a>
+</body>
+</html>

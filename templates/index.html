@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tailor App</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+         @charset "utf-8";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+html {
+  font-size: 200%;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  text-size-adjust: none;
+}
+a {
+  text-decoration: none;
+}
+
+         
+         
+         body {
+            font-family: Arial, sans-serif;
+            background-image: linear-gradient(rgba(115, 192, 255, 0.25),rgba(0,0,0,0.25)),url("{{ url_for('static', filename='Tailor.jpg') }}");    
+            background-size: cover;
+            background-attachment: fixed;
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+        h1{
+            color: azure;
+            
+            
+        }
+
+
+
+
+        .nav-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.nav-bar a {
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #000000;
+    border-radius: 5px;
+    margin-bottom: 25px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.nav-bar a:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+
+
+
+
+
+
+
+
+
+    </style>
+
+</head>
+<body>
+    <h1>Tailor App</h1>
+
+    <div class="nav-bar">
+        <a href="{{ url_for('insert') }}">Insert Customer Info</a>
+        <a href="{{ url_for('update') }}">Update Customer Info</a>
+        <a href="{{ url_for('delete') }}">Delete Customer Info</a>
+        <a href="{{ url_for('view') }}">View All Customers</a>
+    </div>
+
+
+
+
+</body>
+</html>

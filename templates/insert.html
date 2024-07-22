@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Insert Customer Info</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+<style>
+           @charset "utf-8";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+html {
+  font-size: 150%;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  text-size-adjust: none;
+}
+a {
+  text-decoration: none;
+}
+      
+      
+      
+      
+      body {
+            font-family: Arial, sans-serif;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0,0,0,0.50)),url("{{ url_for('static', filename='Front.jpg') }}");    
+            background-size: cover;
+            background-attachment: fixed;
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+        h1{
+            color: azure;
+        }
+</style>
+
+
+</head>
+<body>
+    <h1>Insert Customer Info</h1>
+    <form method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+        <label for="arm_size">Arm Size:</label>
+        <input type="text" id="arm_size" name="arm_size" required><br>
+        <label for="leg_size">Leg Size:</label>
+        <input type="text" id="leg_size" name="leg_size" required><br>
+        <label for="waist_size">Waist Size:</label>
+        <input type="text" id="waist_size" name="waist_size" required><br>
+        <label for="neck_size">Neck Size:</label>
+        <input type="text" id="neck_size" name="neck_size" required><br>
+        <button type="submit">Insert</button>
+    </form>
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+    <a href="{{ url_for('index') }}">Back to Home</a>
+</body>
+</html>
