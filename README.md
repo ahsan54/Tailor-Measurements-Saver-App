@@ -9,9 +9,9 @@ Flask
 
 ## Installation
 Clone the repository:
-git clone https://github.com/your-username/tailor-measurements-saver.git
+git clone https://github.com/ahsan54/Tailor-Measurements-Saver-App.git
 cd tailor-measurements-saver
-
+/blob/main/README.md
 Install the required packages:
 pip install -r requirements.txt
 
